@@ -20,7 +20,6 @@ public class DeleteUserController {
     @DeleteMapping("{id}")
     public ResponseEntity<Void> deleteUser(@PathVariable String id) {
         UserId userId = new UserId(UUID.fromString(id));
-        System.out.println(id);
         this.deleteUserUseCase.deleteUserById(userId);
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }

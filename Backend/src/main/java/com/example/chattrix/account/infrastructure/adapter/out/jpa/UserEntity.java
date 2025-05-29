@@ -37,7 +37,6 @@ public class UserEntity {
     }
 
     public User toDomain() {
-        System.out.println(new User(this.username, this.email, this.password));
         return new User(this.username, this.email, this.password);
     }
 
