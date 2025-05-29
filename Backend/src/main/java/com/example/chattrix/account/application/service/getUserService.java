@@ -1,0 +1,24 @@
+package com.example.chattrix.account.application.service;
+
+import com.example.chattrix.account.domain.model.User;
+import com.example.chattrix.account.domain.model.UserId;
+import com.example.chattrix.account.domain.port.in.GetUserUseCase;
+import com.example.chattrix.account.domain.port.out.GetUserRepository;
+
+import java.util.ArrayList;
+import java.util.Optional;
+
+@UseCase
+public class getUserService implements GetUserUseCase {
+    private final GetUserRepository getUserRepository;
+
+    public getUserService(GetUserRepository getUserRepository) {
+        this.getUserRepository = getUserRepository;
+    }
+
+    @Override
+    public Optional<User> getUserByEmailAndPassword(String username, String password) {
+        return this.getUserRepository.findByEmailAndPassword(username, password);
+    }
+
+}

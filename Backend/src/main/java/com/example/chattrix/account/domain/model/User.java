@@ -7,9 +7,7 @@ import jakarta.persistence.Id;
 
 import java.util.UUID;
 
-@Entity
 public class User {
-    @EmbeddedId
     private UserId id;
     private String username;
     private String email;
@@ -18,8 +16,41 @@ public class User {
     public User() {}
 
     public User(String username, String email, String password) {
+        this.id = new UserId();
         this.username = username;
         this.email = email;
+        this.password = password;
+    }
+
+    public UserId getId() {
+        return id;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setId(UserId id) {
+        this.id = id;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setPassword(String password) {
         this.password = password;
     }
 }
