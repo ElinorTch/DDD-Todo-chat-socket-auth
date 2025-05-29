@@ -17,8 +17,8 @@ public class getUserService implements GetUserUseCase {
     }
 
     @Override
-    public Optional<User> getUserByEmailAndPassword(String username, String password) {
-        return this.getUserRepository.findByEmailAndPassword(username, password);
+    public Optional<User> getUserByEmail(String username) {
+        return this.getUserRepository.findByEmail(username);
     }
 
 }

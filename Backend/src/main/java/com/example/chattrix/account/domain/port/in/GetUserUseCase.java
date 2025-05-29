@@ -7,5 +7,5 @@ import java.util.ArrayList;
 import java.util.Optional;
 
 public interface GetUserUseCase {
-    Optional<User> getUserByEmailAndPassword(String username, String password);
+    Optional<User> getUserByEmail(String username);
 }

@@ -16,7 +16,7 @@ public class JpaGetUserAdapter implements GetUserRepository {
     }
 
     @Override
-    public Optional<User> findByEmailAndPassword(String email, String password) {
-        return this.userEntityRepository.findByEmail(email);
+    public Optional<User> findByEmail(String email) {
+        return this.userEntityRepository.findByEmail(email).map(UserEntity::toDomain);
     }
 }

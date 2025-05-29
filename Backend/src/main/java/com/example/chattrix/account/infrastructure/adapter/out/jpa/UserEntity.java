@@ -2,8 +2,10 @@ package com.example.chattrix.account.infrastructure.adapter.out.jpa;
 
 import com.example.chattrix.account.domain.model.User;
 import com.example.chattrix.account.domain.model.UserId;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.UniqueConstraint;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -16,6 +18,7 @@ public class UserEntity {
     @Id
     private UUID id;
     private String username;
+    @Column(unique = true)
     private String email;
     private String password;
 
@@ -34,7 +37,8 @@ public class UserEntity {
     }
 
     public User toDomain() {
-        return new User(username, email, password);
+        System.out.println(new User(this.username, this.email, this.password));
+        return new User(this.username, this.email, this.password);
     }
 
 }
