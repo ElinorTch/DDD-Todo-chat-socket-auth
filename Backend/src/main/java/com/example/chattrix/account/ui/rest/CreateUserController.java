@@ -2,6 +2,7 @@ package com.example.chattrix.account.ui.rest;
 
 import com.example.chattrix.account.domain.model.User;
 import com.example.chattrix.account.domain.port.in.CreateUserUseCase;
+import com.example.chattrix.account.ui.dto.UserDto;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -10,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/users")
+@RequestMapping("/users")
 public class CreateUserController {
     private final CreateUserUseCase createUserUseCase;
 
@@ -19,9 +20,10 @@ public class CreateUserController {
     }
 
     @PostMapping
-    public ResponseEntity<Void> create(@RequestBody User userDTO) {
+    public ResponseEntity<UserDto> create(@RequestBody User userDTO) {
         User user = new User(userDTO.getUsername(), userDTO.getEmail(), userDTO.getPassword());
         createUserUseCase.createUser(user);
-        return ResponseEntity.status(HttpStatus.CREATED).build();
+        UserDto userResponse = new UserDto(user.getId().id().toString(), user.getUsername(), user.getEmail(), "");
+        return ResponseEntity.ok(userResponse);
     }
 }

@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/api/users")
+@RequestMapping("/users")
 public class DeleteUserController {
     private final DeleteUserUseCase deleteUserUseCase;
 
@@ -21,6 +21,6 @@ public class DeleteUserController {
     public ResponseEntity<Void> deleteUser(@PathVariable String id) {
         UserId userId = new UserId(UUID.fromString(id));
         this.deleteUserUseCase.deleteUserById(userId);
-        return ResponseEntity.status(HttpStatus.CREATED).build();
+        return ResponseEntity.status(HttpStatus.OK).build();
     }
 }
