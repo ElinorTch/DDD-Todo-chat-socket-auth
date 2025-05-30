@@ -17,9 +17,9 @@ public class GetUserController {
         this.getUserUseCase = getUserUseCase;
     }
 
-    @PostMapping("/getByEmail")
-    public ResponseEntity<UserDto> getUserByEmail(@RequestBody User userDto) {
-        Optional<User> user = this.getUserUseCase.getUserByEmail(userDto.getEmail());
+    @GetMapping
+    public ResponseEntity<UserDto> getUserByEmail(@RequestParam(name = "email") String email) {
+        Optional<User> user = this.getUserUseCase.getUserByEmail(email);
         if (user.isEmpty()) {
             return ResponseEntity.notFound().build();
         }

@@ -1,4 +1,4 @@
-package com.example.chattrix.account.application.service;
+package com.example.chattrix.annotation;
 
 import org.springframework.stereotype.Service;
 

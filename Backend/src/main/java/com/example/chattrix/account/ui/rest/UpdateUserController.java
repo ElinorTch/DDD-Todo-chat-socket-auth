@@ -18,7 +18,7 @@ public class UpdateUserController {
         this.updateUserUseCase = updateUserUseCase;
     }
 
-    @PatchMapping("{id}")
+    @PutMapping("{id}")
     public ResponseEntity<UserDto> updateUser(@PathVariable String id, @RequestBody User user) {
         UserId userId = new UserId(UUID.fromString(id));
         user.setId(userId);
