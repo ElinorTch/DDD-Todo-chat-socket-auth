@@ -37,7 +37,7 @@ public class UserEntity {
     }
 
     public User toDomain() {
-        return new User(this.username, this.email, this.password);
+        return new User(this.id, this.username, this.email, this.password);
     }
 
 }
