@@ -2,6 +2,7 @@ package com.example.chattrix.account.ui.rest;
 
 import com.example.chattrix.account.domain.model.User;
 import com.example.chattrix.account.domain.port.in.GetUserUseCase;
+import com.example.chattrix.account.ui.dto.UserDto;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,8 +18,12 @@ public class GetUserController {
     }
 
     @PostMapping("/getByEmail")
-    public ResponseEntity<Optional<User>> getUserByEmail(@RequestBody User userDto) {
+    public ResponseEntity<UserDto> getUserByEmail(@RequestBody User userDto) {
         Optional<User> user = this.getUserUseCase.getUserByEmail(userDto.getEmail());
-        return ResponseEntity.ok(user);
+        if (user.isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
+        UserDto userResponse = new UserDto(user.get().getId().id().toString(),user.get().getUsername(), user.get().getEmail(), "");
+        return ResponseEntity.ok(userResponse);
     }
 }
