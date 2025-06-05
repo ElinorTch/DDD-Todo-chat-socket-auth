@@ -5,5 +5,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface RegisterUserRepository {
-    User register(User user);
+    User register(String email, String password);
 }
