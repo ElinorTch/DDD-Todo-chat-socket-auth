@@ -2,15 +2,14 @@ package com.example.chattrix.authentication.ui;
 
 import com.example.chattrix.account.domain.model.User;
 import com.example.chattrix.account.ui.dto.UserDto;
+import com.example.chattrix.authentication.config.UserAuthenticationProvider;
 import com.example.chattrix.authentication.domain.port.in.LoginUseCase;
-import com.example.chattrix.config.UserAuthenticationProvider;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.swing.text.html.Option;
 import java.util.Optional;
 
 @RestController
