@@ -1,4 +1,4 @@
-package com.example.chattrix.config;
+package com.example.chattrix.authentication.config;
 
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;

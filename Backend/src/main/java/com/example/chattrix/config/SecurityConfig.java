@@ -1,5 +1,7 @@
 package com.example.chattrix.config;
 
+import com.example.chattrix.authentication.config.JwtAuthFilter;
+import com.example.chattrix.authentication.config.UserAuthenticationProvider;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
